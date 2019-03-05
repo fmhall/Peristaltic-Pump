@@ -149,6 +149,11 @@ AccelStepper stepper4(2, 9, 8);
 AccelStepper stepper5(2, 11, 10);
 AccelStepper stepper6(2, 13, 12);
 
+// Define array of stepper motors, indexed at their motor number - 1
+AccelStepper_t motors = [ stepper1, stepper2, stepper3, stepper4, stepper5, stepper6 ];
+
+// the above might not work
+
 String inputString = "";
 char user_input;
 String readString = "", substring;
@@ -157,6 +162,47 @@ boolean done = false;
 unsigned long motorStartMillis;
 unsigned long motorRunMillis;
 int motor_combo;
+
+void genericStepper(AccelStepper_t motors, int motor, int speed, float time)
+{
+    if (motor > 6 || motor < 1)
+    {
+        Serial.println("Error: motor number not valid");
+        break
+    }
+    else
+    {
+        stepper = motors[motor - 1] stepper.setSpeed(speed);
+        Serial.print("Starting Motor 1 at speed------> ");
+        Serial.println(speed);
+        Serial.print("For ");
+        Serial.print(time);
+        Serial.println(" Minutes");
+        Serial.println(" ");
+        motorRunMillis = t * 60 * 1000;
+        motorStartMillis = millis();
+
+        while (!done)
+        {
+            if (millis() - motorStartMillis < motorRunMillis)
+            {
+                stepper.runSpeed();
+            }
+
+            else
+            {
+                Serial.println("*****************Turning motor off*****************");
+                Serial.println(" ");
+                //Serial.print(m);
+                stepper.setSpeed(0);
+                stepper.runSpeed();
+                done = true;
+            }
+        }
+        done = false;
+    }
+}
+}
 
 void run1(int m, int s, float t)
 {
