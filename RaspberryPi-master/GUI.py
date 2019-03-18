@@ -31,6 +31,6 @@ class Root(tkinter.Tk) :
         self.closing_button.pack(fill="x")  
         self.another_button.pack(fill="x")
 
-if __name__=="__main__":
-    root = Root()
-    root.mainloop()  
+# if __name__=="__main__":
+#     root = Root()
+#     root.mainloop()  
