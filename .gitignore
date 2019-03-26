@@ -1,2 +1,4 @@
 /ENV
 /RaspberryPi-master/__pycache__
+/.*
+!.gitignore
