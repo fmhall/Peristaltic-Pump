@@ -8,6 +8,7 @@ class Root(tkinter.Tk) :
         self.motors_canvas = tkinter.Canvas(self)
         self.frame_motors = tkinter.Frame(self, borderwidth="2", relief="ridge")  
         self.frame_buttons = tkinter.Frame(self, borderwidth="2", relief="ridge")
+        self.frame_labels = tkinter.Frame(self, borderwidth="2", relief="ridge")
         self.frame_GUI = tkinter.Frame(self.GUI_canvas)
 
         self.scrollbar = tkinter.Scrollbar(self.GUI_canvas, orient="vertical", command=self.GUI_canvas.yview)
@@ -31,6 +32,6 @@ class Root(tkinter.Tk) :
         self.closing_button.pack(fill="x")  
         self.another_button.pack(fill="x")
 
-# if __name__=="__main__":
-#     root = Root()
-#     root.mainloop()  
+if __name__=="__main__":
+    root = Root()
+    root.mainloop()  
