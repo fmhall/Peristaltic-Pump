@@ -2,3 +2,5 @@
 /RaspberryPi-master/__pycache__
 /.*
 !.gitignore
+.pytest_cache/v/cache
+.vscode

@@ -1,4 +1,7 @@
 import tkinter
+import controller
+import communicator
+from Arduino import Arduino
 
 class Root(tkinter.Tk) :
     def __init__(self):
