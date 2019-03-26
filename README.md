@@ -9,29 +9,33 @@ We are building a cost effective multichannel peristaltic perfusion pump system 
 # Software
 
 ## Deployment
-* Open a terminal and cd to a new, empty directory
 
-`mkdir peristalticPump`
+Open a terminal and cd to a new, empty directory
 
-`cd peristalticPump`
+* `mkdir peristalticPump`
 
-* Clone the repository into that dir
+* `cd peristalticPump`
 
-`git clone https://github.com/fmhall/Peristaltic-Pump/`
+Clone the repository into that dir
 
-* Install the necessary modules and requirements, either in a `virtualenv` (suggested) or on your OS's built in Python3 instance. For Linux and Mac:
+* `git clone https://github.com/fmhall/Peristaltic-Pump/`
 
-`python3 -m pip install --user virtualenv`
+Install the necessary modules and requirements, either in a `virtualenv` (suggested) or on your OS's built in Python3 instance. For Linux and Mac:
 
-`python3 -m virtualenv env`
+* `python3 -m pip install --user virtualenv`
+* `cd Peristaltic-Pump`
+* `python3 -m virtualenv env`
+* `source env/BIN/activate`
 
-* Install the modules listed in `requirements.txt`
+Install the modules listed in `requirements.txt`
 
-`pip install -r requirements.txt`
+* `pip install -r requirements.txt`
 
-* Launch interface
+* On windows: 
+  * `py install -r requirements.txt`
 
-`python3 GUI.py`
+Launch interface
+* `python3 GUI.py`
 
 
 ## Architecture
