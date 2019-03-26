@@ -18,7 +18,7 @@ Open a terminal and cd to a new, empty directory
 
 Clone the repository into that dir
 
-* `git clone https://github.com/fmhall/Peristaltic-Pump/`
+* `https://github.com/fmhall/Peristaltic-Pump.git`
 
 Install the necessary modules and requirements, either in a `virtualenv` (suggested) or on your OS's built in Python3 instance. For Linux and Mac:
 
