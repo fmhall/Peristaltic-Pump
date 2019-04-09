@@ -10,7 +10,8 @@ ard1 = Arduino(port="/dev/ttyACM0",speed=9600)
 
 ser = ard1.conn
 ser.reset_input_buffer()
-ser.write(1)
-if ser.in_waiting > 0:
-    inval = ser.read(1)
-    print(inval)
+ser.write("1")
+while True:
+    if ser.in_waiting > 0:
+        inval = ser.read(1)
+        print(inval)
