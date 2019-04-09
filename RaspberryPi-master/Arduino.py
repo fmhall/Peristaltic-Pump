@@ -20,7 +20,7 @@ class Arduino(object):
                 conn = serial.Serial(port,speed)
                 self.is_connected = True
                 print("Connected to:")
-                print(self)
+                #print(self)
                 return conn
             except:
                 print("\nAttempting to connect with ", str(self))
