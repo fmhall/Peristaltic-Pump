@@ -17,6 +17,7 @@ print(prompt)
 ser.reset_input_buffer()
 stringThing = '1'
 ser.write(stringThing.encode(encoding='UTF-8'))
+ser.reset_input_buffer()
 while True:
     if ser.in_waiting > 0:
         inval = ser.read(1)
