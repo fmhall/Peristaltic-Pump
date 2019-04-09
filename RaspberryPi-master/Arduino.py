@@ -17,7 +17,7 @@ class Arduino(object):
         conn = None
         while not self.is_connected and count < 3:
             try:
-                conn = serial.Serial(port,speed)
+                conn = serial.Serial(self.port,self.speed)
                 self.is_connected = True
                 print("Connected to:")
                 #print(self)
