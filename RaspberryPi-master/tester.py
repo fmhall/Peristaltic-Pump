@@ -8,7 +8,9 @@ from robust_serial.utils import open_serial_port
 
 ard1 = Arduino(port="/dev/ttyACM0",speed=9600)
 
-while True:
-    if ard1.conn.inWaitin()>0:
-        inputValue = ard1.conn.read(1)
-        print(ord(inputValue))
+ser = ard1.conn
+ser.reset_input_buffer()
+ser.write(1)
+if ser.in_waiting > 0:
+    inval = ser.read(1)
+    print(inval)
