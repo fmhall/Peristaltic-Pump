@@ -20,4 +20,4 @@ ser.write(stringThing.encode(encoding='UTF-8'))
 while True:
     if ser.in_waiting > 0:
         inval = ser.read(1)
-        print(inval)
+        print(inval.decode())
