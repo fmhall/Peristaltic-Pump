@@ -6,10 +6,10 @@ from Arduino import Arduino
 from robust_serial import write_order, Order, write_i8, write_i16, read_i8, read_order
 from robust_serial.utils import open_serial_port
 def setup():
-    ard1 = Arduino(port="/dev/ttyUSB0",speed=9600)
-    ard2 = Arduino(port="/dev/ttyUSB1",speed=9600)
-    ard3 = Arduino(port="/dev/ttyUSB2",speed=9600)
-    ard4 = Arduino(port="/dev/ttyUSB3",speed=9600)
+    ard1 = Arduino(port="/dev/ttyACM0",speed=9600)
+    ard2 = Arduino(port="/dev/ttyACM1",speed=9600)
+    ard3 = Arduino(port="/dev/ttyACM2",speed=9600)
+    ard4 = Arduino(port="/dev/ttyACM3",speed=9600)
     ardList = [ard1,ard2,ard3,ard4]
     flag = True
     for ard in ardList:

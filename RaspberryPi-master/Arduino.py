@@ -13,13 +13,20 @@ class Arduino(object):
         self.orderQueue = []
 
     def tryConnect(self):
-        while not self.is_connected:
+        count = 1
+        conn = None
+        while not self.is_connected and count < 3:
             try:
                 conn = serial.Serial(port,speed)
                 self.is_connected = True
+                print("Connected to:")
+                print(self)
+                return conn
             except:
                 print("\nAttempting to connect with ", str(self))
-            time.sleep(1)
+                time.sleep(1)
+                count += 1
+        print("\nCould not connect to Arduino")
         return conn
     #How the object will represent itself when called or printed
     def __repr__(self):
