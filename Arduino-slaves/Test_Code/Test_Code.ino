@@ -133,11 +133,13 @@ void loop()
     {
         // Raspberry Pi mode
         // testing code - sending bytes
-        for (byte n = 0; n < 255; n++)
-        {
-            Serial.write(n);
-            delay(50);
-        }
+        // for (byte n = 0; n < 255; n++)
+        // {
+        //     Serial.write(n);
+        //     delay(50);
+        // }
+        // val = 2
+        run1(1, 1000, 1);
     }
 }
 
@@ -202,7 +204,6 @@ int motor_combo;
 //         done = false;
 //     }
 // }
-
 
 void run1(int m, int s, float t)
 {
