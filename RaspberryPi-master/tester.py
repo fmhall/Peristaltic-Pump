@@ -29,6 +29,7 @@ while not is_connected:
         if byte in [Order.HELLO.value, Order.ALREADY_CONNECTED.value]:
             is_connected = True
             print("Connected!!!!!")
+            
 write_order(ser, Order.HELLO)
 write_order(ser, Order.MOTOR)
 write_i8(ser, 1)

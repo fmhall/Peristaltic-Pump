@@ -78,6 +78,7 @@ void step_motors()
     // {
     //     stepper6.runSpeed();
     // }
+    write_i8(7);
 }
 
 void update_motors_orders(int8_t m_number, int speed)
