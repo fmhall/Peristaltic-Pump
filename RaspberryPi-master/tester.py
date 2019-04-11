@@ -21,11 +21,12 @@ ser.reset_input_buffer()
 is_connected = False
 while not is_connected:
         print("Waiting for arduino...")
-        write_order(serial_file, Order.HELLO)
-        bytes_array = bytearray(serial_file.read(1))
+        write_order(ser, Order.HELLO)
+        bytes_array = bytearray(ser.read(1))
         if not bytes_array:
             time.sleep(2)
             continue
         byte = bytes_array[0]
         if byte in [Order.HELLO.value, Order.ALREADY_CONNECTED.value]:
             is_connected = True
+            print("Connected!!!!!")
