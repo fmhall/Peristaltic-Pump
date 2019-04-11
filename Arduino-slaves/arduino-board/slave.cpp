@@ -117,7 +117,7 @@ void update_motors_orders(int8_t m_number, int8_t speed)
     }
     default:
     {
-        write_order(ERROR)
+        write_order(ERROR);
     }
     }
 }
