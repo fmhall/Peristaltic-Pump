@@ -36,8 +36,9 @@ write_i8(ser, 90)
 while True:
     bytes_array = bytearray(ser.read(1))
     if not bytes_array:
-        time.sleep(1)
+        time.sleep(2)
         print("no messages")
         continue
     byte = bytes_array[0]
     print(byte)
+    time.sleep(2)
