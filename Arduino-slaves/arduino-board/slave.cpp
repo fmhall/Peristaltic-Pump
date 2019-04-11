@@ -24,8 +24,8 @@ void setup()
         get_messages_from_serial();
         write_order(ALREADY_CONNECTED);
     }
-    stepper.setMaxSpeed(1000);
-    stepper.setSpeed(50);
+    stepper1.setMaxSpeed(1000);
+    stepper1.setSpeed(50);
 }
 
 // Define 6 steppers and the pins they will use
