@@ -42,7 +42,7 @@ while True:
     # byte = bytes_array[0]
     byte = ser.read(1)
     print(byte)
-    time.sleep(2)
+    time.sleep(1)
     write_order(ser, Order.MOTOR)
     write_i8(ser, 1)
     write_i8(ser, 90)

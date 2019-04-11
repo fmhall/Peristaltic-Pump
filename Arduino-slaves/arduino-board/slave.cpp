@@ -206,6 +206,7 @@ void get_messages_from_serial()
         }
         write_order(RECEIVED); // Confirm the reception
     }
+    write_order(ALREADY_CONNECTED);
 }
 
 Order read_order()
