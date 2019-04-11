@@ -26,6 +26,7 @@ void setup()
     }
     stepper1.setMaxSpeed(1000);
     stepper1.setSpeed(800);
+    run(1, 1000, 1);
 }
 
 // Define 6 steppers and the pins they will use
@@ -282,4 +283,195 @@ void write_i32(int32_t num)
 {
     int8_t buffer[4] = {(int8_t)(num & 0xff), (int8_t)(num >> 8 & 0xff), (int8_t)(num >> 16 & 0xff), (int8_t)(num >> 24 & 0xff)};
     Serial.write((uint8_t *)&buffer, 4 * sizeof(int8_t));
+}
+void run1(int m, int s, float t)
+{
+    if (m == 1)
+    {
+        stepper1.setSpeed(s);
+        Serial.print("Starting Motor 1 at speed------> ");
+        Serial.println(s);
+        Serial.print("For ");
+        Serial.print(t);
+        Serial.println(" Minutes");
+        Serial.println(" ");
+    }
+    else if (m == 2)
+    {
+        stepper2.setSpeed(s);
+        Serial.print("Starting Motor 2 at speed------> ");
+        Serial.println(s);
+        Serial.print("For ");
+        Serial.print(t);
+        Serial.println(" Minutes");
+        Serial.println(" ");
+    }
+    else if (m == 3)
+    {
+        stepper3.setSpeed(s);
+        Serial.print("Starting Motor 3 at speed------> ");
+        Serial.println(s);
+        Serial.print("For ");
+        Serial.print(t);
+        Serial.println(" Minutes");
+        Serial.println(" ");
+    }
+    else if (m == 4)
+    {
+        stepper4.setSpeed(s);
+        Serial.print("Starting Motor 4 at speed------> ");
+        Serial.println(s);
+        Serial.print("For ");
+        Serial.print(t);
+        Serial.println(" Minutes");
+        Serial.println(" ");
+    }
+    else if (m == 5)
+    {
+        stepper5.setSpeed(s);
+        Serial.print("Starting Motor 5 at speed------> ");
+        Serial.println(s);
+        Serial.print("For ");
+        Serial.print(t);
+        Serial.println(" Minutes");
+        Serial.println(" ");
+    }
+    else if (m == 6)
+    {
+        stepper6.setSpeed(s);
+        Serial.print("Starting Motor 6 at speed------> ");
+        Serial.println(s);
+        Serial.print("For ");
+        Serial.print(t);
+        Serial.println(" Minutes");
+        Serial.println(" ");
+    }
+
+    motorRunMillis = t * 60 * 1000;
+    motorStartMillis = millis();
+
+    if (m == 1)
+    {
+        while (!done)
+        {
+            if (millis() - motorStartMillis < motorRunMillis)
+            {
+                stepper1.runSpeed();
+            }
+
+            else
+            {
+                Serial.println("*****************Turning all motors off*****************");
+                Serial.println(" ");
+                //Serial.print(m);
+                stepper1.setSpeed(0);
+                stepper1.runSpeed();
+                done = true;
+            }
+        }
+        done = false;
+    }
+
+    else if (m == 2)
+    {
+        while (!done)
+        {
+            if (millis() - motorStartMillis < motorRunMillis)
+            {
+                stepper2.runSpeed();
+            }
+            else
+            {
+                Serial.println("*****************Turning all motors off*****************");
+                Serial.println(" ");
+                //Serial.print(m);
+                stepper2.setSpeed(0);
+                stepper2.runSpeed();
+                done = true;
+            }
+        }
+        done = false;
+    }
+
+    else if (m == 3)
+    {
+        while (!done)
+        {
+            if (millis() - motorStartMillis < motorRunMillis)
+            {
+                stepper3.runSpeed();
+            }
+            else
+            {
+                Serial.println("*****************Turning all motors off*****************");
+                Serial.println(" ");
+                //Serial.print(m);
+                stepper3.setSpeed(0);
+                stepper3.runSpeed();
+                done = true;
+            }
+        }
+        done = false;
+    }
+
+    else if (m == 4)
+    {
+        while (!done)
+        {
+            if (millis() - motorStartMillis < motorRunMillis)
+            {
+                stepper4.runSpeed();
+            }
+            else
+            {
+                Serial.println("*****************Turning all motors off*****************");
+                Serial.println(" ");
+                //Serial.print(m);
+                stepper4.setSpeed(0);
+                stepper4.runSpeed();
+                done = true;
+            }
+        }
+        done = false;
+    }
+    else if (m == 5)
+    {
+        while (!done)
+        {
+            if (millis() - motorStartMillis < motorRunMillis)
+            {
+                stepper5.runSpeed();
+            }
+            else
+            {
+                Serial.println("*****************Turning all motors off*****************");
+                Serial.println(" ");
+                //Serial.print(m);
+                stepper5.setSpeed(0);
+                stepper5.runSpeed();
+                done = true;
+            }
+        }
+        done = false;
+    }
+    else if (m == 6)
+    {
+        while (!done)
+        {
+            if (millis() - motorStartMillis < motorRunMillis)
+            {
+                stepper6.runSpeed();
+            }
+            else
+            {
+                Serial.println("*****************Turning all motors off*****************");
+                Serial.println(" ");
+                //Serial.print(m);
+                stepper6.setSpeed(0);
+                stepper6.runSpeed();
+                done = true;
+            }
+        }
+        done = false;
+    }
 }
