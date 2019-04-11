@@ -6,7 +6,7 @@ from Arduino import Arduino
 from robust_serial import write_order, Order, write_i8, write_i16, read_i8, read_order
 from robust_serial.utils import open_serial_port
 
-ard1 = Arduino(port="/dev/ttyACM0",speed=9600)
+ard1 = Arduino(port="/dev/ttyACM1",speed=9600)
 
 ser = ard1.conn
 ser.reset_input_buffer()
