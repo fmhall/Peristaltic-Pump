@@ -46,7 +46,6 @@ void loop()
 {
     get_messages_from_serial();
     step_motors();
-    write_order(ALREADY_CONNECTED);
 }
 
 void step_motors()
@@ -154,7 +153,7 @@ void get_messages_from_serial()
             else
             {
                 // If we are already connected do not send "hello" to avoid infinite loop
-                write_order(ALREADY_CONNECTED);
+                write_order(ERROR);
             }
         }
         else if (order_received == ALREADY_CONNECTED)
@@ -188,7 +187,6 @@ void get_messages_from_serial()
             case MOTOR:
             {
                 // between -100 and 100
-                wait_for_bytes();
                 motor_number = read_i8();
                 motor_speed = read_i8();
                 write_i8(motor_number);
@@ -212,7 +210,6 @@ void get_messages_from_serial()
         }
         write_order(RECEIVED); // Confirm the reception
     }
-    write_order(ALREADY_CONNECTED);
 }
 
 Order read_order()
