@@ -25,7 +25,7 @@ void setup()
         write_order(ALREADY_CONNECTED);
     }
     stepper1.setMaxSpeed(1000);
-    stepper1.setSpeed(1000);
+    stepper1.setSpeed(800);
 }
 
 // Define 6 steppers and the pins they will use
@@ -48,7 +48,8 @@ int motor_in = 0;
 void loop()
 {
     //get_messages_from_serial();
-    step_motors();
+    //step_motors();
+    stepper1.runSpeed();
 }
 
 void step_motors()
