@@ -41,10 +41,9 @@ boolean done = false;
 unsigned long motorStartMillis;
 unsigned long motorRunMillis;
 int motor_combo;
-int motor_in = 0
+int motor_in = 0;
 
-    void
-    loop()
+void loop()
 {
     get_messages_from_serial();
     step_motors();
