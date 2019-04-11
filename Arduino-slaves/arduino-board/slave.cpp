@@ -51,6 +51,7 @@ void loop()
 
 void step_motors()
 {
+    stepper1.runSpeed();
     if (stepper1.isRunning())
     {
         stepper1.runSpeed();
