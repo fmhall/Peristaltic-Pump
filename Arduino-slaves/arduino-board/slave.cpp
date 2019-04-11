@@ -17,7 +17,6 @@ void setup()
     Serial.begin(SERIAL_BAUD);
 
     // Wait until the arduino is connected to master
-    run1(1, 1000, 1);
     while (!is_connected)
     {
         write_order(HELLO);
