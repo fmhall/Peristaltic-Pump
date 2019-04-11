@@ -25,7 +25,7 @@ void setup()
         write_order(ALREADY_CONNECTED);
     }
     stepper1.setMaxSpeed(1000);
-    stepper1.setSpeed(50);
+    stepper1.setSpeed(1000);
 }
 
 // Define 6 steppers and the pins they will use
