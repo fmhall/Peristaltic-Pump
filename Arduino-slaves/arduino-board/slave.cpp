@@ -82,43 +82,27 @@ void update_motors_orders(int8_t m_number, int8_t speed)
     switch (m_number)
     {
     case 0:
-    {
         // Do nothing
-    }
     case 1:
-    {
         stepper1.setSpeed(speed);
         write_order(MOTOR1);
-    }
     case 2:
-    {
         stepper2.setSpeed(speed);
         write_order(MOTOR2);
-    }
     case 3:
-    {
         stepper3.setSpeed(speed);
         write_order(MOTOR3);
-    }
     case 4:
-    {
         stepper4.setSpeed(speed);
         write_order(MOTOR4);
-    }
     case 5:
-    {
         stepper5.setSpeed(speed);
         write_order(MOTOR5);
-    }
     case 6:
-    {
         stepper6.setSpeed(speed);
         write_order(MOTOR6);
-    }
     default:
-    {
         write_order(ERROR);
-    }
     }
 }
 
