@@ -146,6 +146,7 @@ void get_messages_from_serial()
             {
                 is_connected = true;
                 write_order(HELLO);
+                write_order(STOP);
             }
             else
             {
