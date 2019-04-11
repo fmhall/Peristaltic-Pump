@@ -80,7 +80,6 @@ void step_motors()
 void update_motors_orders(int8_t m_number, int speed)
 {
     speed = constrain(speed, 0, 1000);
-    write_i8(m_number);
     switch (m_number)
     {
     case 0:
@@ -88,6 +87,7 @@ void update_motors_orders(int8_t m_number, int speed)
         break;
     case 1:
         stepper1.setSpeed(speed);
+        stepper1.runSpeed();
         write_order(MOTOR1);
         break;
     case 2:
@@ -182,7 +182,6 @@ void get_messages_from_serial()
                 // between -100 and 100
                 motor_number = read_i8();
                 motor_speed = read_i8();
-                write_i8(motor_number);
                 write_i8(motor_speed);
                 motor_in = motor_speed * 10;
                 update_motors_orders(motor_number, motor_in);
