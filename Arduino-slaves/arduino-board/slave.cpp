@@ -45,6 +45,7 @@ void loop()
 {
     get_messages_from_serial();
     step_motors();
+    write_order(ALREADY_CONNECTED);
 }
 
 void step_motors()
