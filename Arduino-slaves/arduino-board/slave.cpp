@@ -41,8 +41,10 @@ boolean done = false;
 unsigned long motorStartMillis;
 unsigned long motorRunMillis;
 int motor_combo;
+int motor_in = 0
 
-void loop()
+    void
+    loop()
 {
     get_messages_from_serial();
     step_motors();
@@ -76,31 +78,39 @@ void step_motors()
     }
 }
 
-void update_motors_orders(int8_t m_number, int8_t speed)
+void update_motors_orders(int8_t m_number, int speed)
 {
     speed = constrain(speed, 0, 1000);
+    write_i8(m_number);
     switch (m_number)
     {
     case 0:
         // Do nothing
+        break;
     case 1:
         stepper1.setSpeed(speed);
         write_order(MOTOR1);
+        break;
     case 2:
         stepper2.setSpeed(speed);
         write_order(MOTOR2);
+        break;
     case 3:
         stepper3.setSpeed(speed);
         write_order(MOTOR3);
+        break;
     case 4:
         stepper4.setSpeed(speed);
         write_order(MOTOR4);
+        break;
     case 5:
         stepper5.setSpeed(speed);
         write_order(MOTOR5);
+        break;
     case 6:
         stepper6.setSpeed(speed);
         write_order(MOTOR6);
+        break;
     default:
         write_order(ERROR);
     }
@@ -175,8 +185,8 @@ void get_messages_from_serial()
                 motor_speed = read_i8();
                 write_i8(motor_number);
                 write_i8(motor_speed);
-                motor_speed = motor_speed * 10;
-                update_motors_orders(motor_number, motor_speed);
+                motor_in = motor_speed * 10;
+                update_motors_orders(motor_number, motor_in);
                 if (DEBUG)
                 {
                     write_order(MOTOR);
