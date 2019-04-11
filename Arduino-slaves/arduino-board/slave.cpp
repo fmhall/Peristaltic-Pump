@@ -24,7 +24,6 @@ void setup()
         get_messages_from_serial();
         write_order(ALREADY_CONNECTED);
     }
-    run1(1, 1000, 1);
 }
 
 // Define 6 steppers and the pins they will use
@@ -48,7 +47,7 @@ void loop()
 {
     //get_messages_from_serial();
     //step_motors();
-    stepper1.runSpeed();
+    run1(1, 1000, 1);
 }
 
 void step_motors()
