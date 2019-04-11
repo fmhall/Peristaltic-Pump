@@ -26,7 +26,6 @@ void setup()
     }
     stepper1.setMaxSpeed(1000);
     stepper1.setSpeed(800);
-    run(1, 1000, 1);
 }
 
 // Define 6 steppers and the pins they will use
