@@ -6,10 +6,11 @@
 
 bool is_connected = false; ///< True if the connection with the master is available
 int8_t motor_speed = 0;
+int8_t motor_number = 0;
 int16_t servo_angle = INITIAL_THETA;
 unsigned long time;
 char val;
-
+bool update = false;
 void setup()
 {
     // Init Serial
@@ -32,27 +33,89 @@ AccelStepper stepper3(2, 7, 6);
 AccelStepper stepper4(2, 9, 8);
 AccelStepper stepper5(2, 11, 10);
 AccelStepper stepper6(2, 13, 12);
+String inputString = "";
+char user_input;
+String readString = "", substring;
+boolean stringComplete = true;
+boolean done = false;
+unsigned long motorStartMillis;
+unsigned long motorRunMillis;
+int motor_combo;
 
 void loop()
 {
     get_messages_from_serial();
-    update_motors_orders();
+    step_motors();
 }
 
-void update_motors_orders()
+void step_motors()
 {
-    // servomotor.write(constrain(servo_angle, THETA_MIN, THETA_MAX));
-    // motor_speed = constrain(motor_speed, -SPEED_MAX, SPEED_MAX);
-    // // Send motor speed order
-    // if (motor_speed > 0)
-    // {
-    //     digitalWrite(DIRECTION_PIN, LOW);
-    // }
-    // else
-    // {
-    //     digitalWrite(DIRECTION_PIN, HIGH);
-    // }
-    // analogWrite(MOTOR_PIN, convert_to_pwm(float(motor_speed)));
+    if
+        stepper1.isRunning()
+        {
+            stepper1.runSpeed()
+        }
+    if
+        stepper2.isRunning()
+        {
+            stepper2.runSpeed()
+        }
+    if
+        stepper3.isRunning()
+        {
+            stepper3.runSpeed()
+        }
+    if
+        stepper4.isRunning()
+        {
+            stepper4.runSpeed()
+        }
+    if
+        stepper5.isRunning()
+        {
+            stepper5.runSpeed()
+        }
+    if
+        stepper6.isRunning()
+        {
+            stepper6.runSpeed()
+        }
+}
+
+void update_motors_orders(int8_t m_number, int8_t speed)
+{
+    speed = constrain(speed, 0, 1000);
+    switch (m_number)
+    {
+    case 0:
+    {
+        // Do nothing
+    }
+    case 1:
+    {
+        stepper1.setSpeed(speed)
+    }
+    case 2:
+    {
+        stepper2.setSpeed(speed)
+    }
+    case 3:
+    {
+        stepper3.setSpeed(speed)
+    }
+    case 4:
+    {
+        stepper4.setSpeed(speed)
+    }
+    case 5:
+    {
+        stepper5.setSpeed(speed)
+    }
+    case 6:
+    {
+        stepper6.setSpeed(speed)
+    }
+    }
 }
 
 void stop()
@@ -119,7 +182,10 @@ void get_messages_from_serial()
             case MOTOR:
             {
                 // between -100 and 100
+                motor_number = read_i8();
                 motor_speed = read_i8();
+                motor_speed = motor_speed * 10;
+                update_motors_orders(motor_number, motor_speed);
                 if (DEBUG)
                 {
                     write_order(MOTOR);
