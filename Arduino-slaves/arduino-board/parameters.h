@@ -12,6 +12,6 @@
 #define SPEED_MAX 100
 
 // If DEBUG is set to true, the arduino will send back all the received messages
-#define DEBUG true
+#define DEBUG false
 
 #endif

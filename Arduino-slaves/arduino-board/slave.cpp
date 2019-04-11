@@ -22,6 +22,7 @@ void setup()
         write_order(HELLO);
         wait_for_bytes(1, 1000);
         get_messages_from_serial();
+        write_order(ALREADY_CONNECTED);
     }
 }
 
