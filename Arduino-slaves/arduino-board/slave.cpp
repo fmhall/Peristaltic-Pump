@@ -15,7 +15,7 @@ void setup()
 {
     // Init Serial
     Serial.begin(SERIAL_BAUD);
-
+    AccelStepper stepper1(2, 3, 2);
     // Wait until the arduino is connected to master
     while (!is_connected)
     {
