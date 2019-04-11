@@ -17,13 +17,13 @@ void setup()
     Serial.begin(SERIAL_BAUD);
     AccelStepper stepper1(2, 3, 2);
     // Wait until the arduino is connected to master
-    while (!is_connected)
-    {
-        write_order(HELLO);
-        wait_for_bytes(1, 1000);
-        get_messages_from_serial();
-        write_order(ALREADY_CONNECTED);
-    }
+    // while (!is_connected)
+    // {
+    //     write_order(HELLO);
+    //     wait_for_bytes(1, 1000);
+    //     get_messages_from_serial();
+    //     write_order(ALREADY_CONNECTED);
+    // }
 }
 
 // Define 6 steppers and the pins they will use
