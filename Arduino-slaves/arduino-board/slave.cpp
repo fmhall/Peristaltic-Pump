@@ -52,30 +52,30 @@ void loop()
 void step_motors()
 {
     stepper1.runSpeed();
-    if (stepper1.isRunning())
-    {
-        stepper1.runSpeed();
-    }
-    if (stepper2.isRunning())
-    {
-        stepper2.runSpeed();
-    }
-    if (stepper3.isRunning())
-    {
-        stepper3.runSpeed();
-    }
-    if (stepper4.isRunning())
-    {
-        stepper4.runSpeed();
-    }
-    if (stepper5.isRunning())
-    {
-        stepper5.runSpeed();
-    }
-    if (stepper6.isRunning())
-    {
-        stepper6.runSpeed();
-    }
+    // if (stepper1.isRunning())
+    // {
+    //     stepper1.runSpeed();
+    // }
+    // if (stepper2.isRunning())
+    // {
+    //     stepper2.runSpeed();
+    // }
+    // if (stepper3.isRunning())
+    // {
+    //     stepper3.runSpeed();
+    // }
+    // if (stepper4.isRunning())
+    // {
+    //     stepper4.runSpeed();
+    // }
+    // if (stepper5.isRunning())
+    // {
+    //     stepper5.runSpeed();
+    // }
+    // if (stepper6.isRunning())
+    // {
+    //     stepper6.runSpeed();
+    // }
 }
 
 void update_motors_orders(int8_t m_number, int speed)
@@ -87,7 +87,7 @@ void update_motors_orders(int8_t m_number, int speed)
         // Do nothing
         break;
     case 1:
-        stepper1.setSpeed(speed);
+        stepper1.setSpeed(900);
         stepper1.runSpeed();
         write_order(MOTOR1);
         break;
