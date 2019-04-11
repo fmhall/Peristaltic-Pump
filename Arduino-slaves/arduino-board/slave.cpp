@@ -79,7 +79,6 @@ void step_motors()
 
 void update_motors_orders(int8_t m_number, int8_t speed)
 {
-    write_order(ALREADY_CONNECTED);
     speed = constrain(speed, 0, 1000);
     switch (m_number)
     {
@@ -116,6 +115,10 @@ void update_motors_orders(int8_t m_number, int8_t speed)
     {
         stepper6.setSpeed(speed);
         write_order(MOTOR6);
+    }
+    default:
+    {
+        write_order(ERROR)
     }
     }
 }
@@ -185,8 +188,11 @@ void get_messages_from_serial()
             case MOTOR:
             {
                 // between -100 and 100
+                wait_for_bytes();
                 motor_number = read_i8();
                 motor_speed = read_i8();
+                write_i8(motor_number);
+                write_i8(motor_speed);
                 motor_speed = motor_speed * 10;
                 update_motors_orders(motor_number, motor_speed);
                 if (DEBUG)
