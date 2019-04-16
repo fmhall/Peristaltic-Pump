@@ -15,7 +15,6 @@ void setup()
 {
     // Init Serial
     Serial.begin(SERIAL_BAUD);
-    AccelStepper stepper1(2, 3, 2);
     // Wait until the arduino is connected to master
     while (!is_connected)
     {
@@ -24,8 +23,8 @@ void setup()
         get_messages_from_serial();
         write_order(ALREADY_CONNECTED);
     }
-    stepper1.setMaxSpeed(1000);
-    stepper1.setSpeed(900);
+    // stepper1.setMaxSpeed(1000);
+    // stepper1.setSpeed(900);
 }
 
 // Define 6 steppers and the pins they will use
@@ -146,7 +145,7 @@ void get_messages_from_serial()
             {
                 is_connected = true;
                 write_order(HELLO);
-                write_order(STOP);
+                //write_order(STOP);
             }
             else
             {
