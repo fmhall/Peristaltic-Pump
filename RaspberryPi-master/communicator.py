@@ -27,7 +27,7 @@ def setup():
             byte = bytes_array[0]
             if byte in [7]:
                 print("Connected to Arduino: " + str(ard))
-            break
+                break
     while True:
         for ard in ardList:
             bytes_array = bytearray(ard.conn.read(1))
