@@ -2,7 +2,6 @@ from tkinter import *
 from controller import *
 from communicator import *
 from Arduino import Arduino
-from PIL import Image, ImageTk
 import threading
 from queue import Queue
 import time
@@ -42,22 +41,12 @@ class Window(Frame):
         # adds a command to the menu option, calling it exit, and the
         # command it runs on event is client_exit
         edit.add_command(label="Undo")
-        edit.add_command(label="Show Img", command=self.showImg)
         edit.add_command(label="Show Text", command=self.showText)
         #added "file" to our menu
         menu.add_cascade(label="Edit", menu=edit)
         #self.getArduinos()
     def client_exit(self):
         exit()
-    
-    def showImg(self):
-        load = Image.open("painting.jpg")
-        render = ImageTk.PhotoImage(load)
-
-        # labels can be text or images
-        img = Label(self, image=render)
-        img.image = render
-        img.place(x=0, y=0)
 
     def showText(self):
         text = Label(self, text="Connecting to Arduinos...")
