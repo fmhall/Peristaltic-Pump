@@ -23,8 +23,23 @@ void setup()
         get_messages_from_serial();
         write_order(ALREADY_CONNECTED);
     }
-    // stepper1.setMaxSpeed(1000);
-    // stepper1.setSpeed(900);
+    stepper1.setMaxSpeed(1000);
+    stepper1.setSpeed(700);
+
+    stepper2.setMaxSpeed(1000);
+    stepper2.setSpeed(700);
+
+    stepper3.setMaxSpeed(1000);
+    stepper3.setSpeed(700);
+
+    stepper4.setMaxSpeed(1000);
+    stepper4.setSpeed(700);
+
+    stepper5.setMaxSpeed(1000);
+    stepper5.setSpeed(700);
+
+    stepper6.setMaxSpeed(1000);
+    stepper6.setSpeed(700);
 }
 
 // Define 6 steppers and the pins they will use
@@ -46,14 +61,18 @@ int motor_in = 0;
 
 void loop()
 {
-    //get_messages_from_serial();
-    //step_motors();
-    stepper1.runSpeed();
+    get_messages_from_serial();
+    step_motors();
 }
 
 void step_motors()
 {
     stepper1.runSpeed();
+    stepper2.runSpeed();
+    stepper3.runSpeed();
+    stepper4.runSpeed();
+    stepper5.runSpeed();
+    stepper6.runSpeed();
     // if (stepper1.isRunning())
     // {
     //     stepper1.runSpeed();
