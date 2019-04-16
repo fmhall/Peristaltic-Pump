@@ -33,6 +33,7 @@ class Window(Frame):
         # command it runs on event is client_exit
         file.add_command(label="Exit", command=self.client_exit)
         file.add_command(label="Connect", command=self.getArduinos)
+        file.add_command(label="Stop All", command=self.stopAllMotors)
         #added "file" to our menu
         menu.add_cascade(label="File", menu=file)
 
@@ -48,7 +49,9 @@ class Window(Frame):
         #self.getArduinos()
     def client_exit(self):
         exit()
-
+    def stopAllMotors(self):
+        if self.ard_list:
+            stopAll(self.ard_list)
     def showText(self):
         for ard in self.ard_list:
             text = Label(self, text=str(ard))
