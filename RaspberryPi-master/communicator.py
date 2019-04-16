@@ -44,7 +44,7 @@ def setup():
 
 def stopAll(ardList):
     for ard in ardList:
-        for motor in range(6)
+        for motor in range(6):
             write_order(ard.conn, Order.MOTOR)
             write_i8(ard.conn, motor+1)
             write_i8(ard.conn, 0)
