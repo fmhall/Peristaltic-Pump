@@ -27,6 +27,7 @@ def setup():
             byte = bytes_array[0]
             if byte in [Order.HELLO.value, Order.ALREADY_CONNECTED.value]:
                 print("Connected to Arduino" + str(ard))
+            break
 
     return ardList
 
