@@ -28,17 +28,17 @@ def setup():
             if byte in [7]:
                 print("Connected to Arduino: " + str(ard))
                 break
-    while True:
-        for ard in ardList:
-            bytes_array = bytearray(ard.conn.read(1))
-            if not bytes_array:
-                time.sleep(1)
-                print("no messages from ", str(ard))
-                continue
-            byte = bytes_array[0]
-            # byte = ser.read(1)
-            print("Message from " + str(ard) + ": " + str(byte))
-            time.sleep(1)
+    # while True:
+    #     for ard in ardList:
+    #         bytes_array = bytearray(ard.conn.read(1))
+    #         if not bytes_array:
+    #             time.sleep(1)
+    #             print("no messages from ", str(ard))
+    #             continue
+    #         byte = bytes_array[0]
+    #         # byte = ser.read(1)
+    #         print("Message from " + str(ard) + ": " + str(byte))
+    #         time.sleep(1)
 
     return ardList
 
