@@ -11,6 +11,13 @@ int16_t servo_angle = INITIAL_THETA;
 unsigned long time;
 char val;
 bool update = false;
+// Define 6 steppers and the pins they will use
+AccelStepper stepper1(2, 3, 2);
+AccelStepper stepper2(2, 5, 4);
+AccelStepper stepper3(2, 7, 6);
+AccelStepper stepper4(2, 9, 8);
+AccelStepper stepper5(2, 11, 10);
+AccelStepper stepper6(2, 13, 12);
 void setup()
 {
     // Init Serial
@@ -42,13 +49,6 @@ void setup()
     stepper6.setSpeed(700);
 }
 
-// Define 6 steppers and the pins they will use
-AccelStepper stepper1(2, 3, 2);
-AccelStepper stepper2(2, 5, 4);
-AccelStepper stepper3(2, 7, 6);
-AccelStepper stepper4(2, 9, 8);
-AccelStepper stepper5(2, 11, 10);
-AccelStepper stepper6(2, 13, 12);
 String inputString = "";
 char user_input;
 String readString = "", substring;
