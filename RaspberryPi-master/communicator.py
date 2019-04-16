@@ -48,7 +48,7 @@ def stopAll(ardList):
             write_order(ard.conn, Order.MOTOR)
             write_i8(ard.conn, motor+1)
             write_i8(ard.conn, 0)
-            print(read_i8(ard.conn))
+            #print(read_i8(ard.conn))
 # for ser in serList:
 #     ser.flushInput()
 
