@@ -25,7 +25,7 @@ def setup():
                 time.sleep(2)
                 continue
             byte = bytes_array[0]
-            if byte in [Order.HELLO.value, Order.ALREADY_CONNECTED.value]:
+            if byte in [7]:
                 print("Connected to Arduino: " + str(ard))
             break
     while True:
