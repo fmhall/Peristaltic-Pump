@@ -4,7 +4,7 @@ import time
 import struct
 from Arduino import Arduino
 from robust_serial import write_order, Order, write_i8, write_i16, read_i8, read_order
-from robust_serial.utils import open_serial_port
+
 def setup():
     ard1 = Arduino(port="/dev/ttyACM0",speed=9600)
     ard2 = Arduino(port="/dev/ttyACM1",speed=9600)
@@ -28,6 +28,7 @@ def setup():
             print("Connected to Arduino")
 
     return ardList
+
 
 # for ser in serList:
 #     ser.flushInput()
