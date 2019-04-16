@@ -140,8 +140,12 @@ void update_motors_orders(int8_t m_number, int speed)
 
 void stop()
 {
-    // analogWrite(MOTOR_PIN, 0);
-    // digitalWrite(DIRECTION_PIN, LOW);
+    stepper1.setSpeed(0);
+    stepper2.setSpeed(0);
+    stepper3.setSpeed(0);
+    stepper4.setSpeed(0);
+    stepper5.setSpeed(0);
+    stepper6.setSpeed(0);
 }
 
 int convert_to_pwm(float motor_speed)

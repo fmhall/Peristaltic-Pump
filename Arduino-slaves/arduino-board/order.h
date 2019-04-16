@@ -16,7 +16,8 @@ enum Order
     MOTOR3 = 13,
     MOTOR4 = 14,
     MOTOR5 = 15,
-    MOTOR6 = 16
+    MOTOR6 = 16,
+    ALLSTOP = 20
 
 };
 

@@ -43,7 +43,10 @@ def setup():
     return ardList
 
 def stopAll(ardList):
+    
     for ard in ardList:
+        ard.conn.reset_output_buffer()
+        ard.conn.reset_input_buffer()
         print(ard)
         for motor in range(6):
             print(motor)
