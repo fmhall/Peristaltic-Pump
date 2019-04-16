@@ -1,6 +1,9 @@
 import serial
 import time
 import struct
+import threading
+from queue import Queue
+import time
 
 class Arduino(object):
 

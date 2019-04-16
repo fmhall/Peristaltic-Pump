@@ -1,8 +1,11 @@
 from tkinter import *
-import controller
-import communicator
+from controller import *
+from communicator import *
 from Arduino import Arduino
-
+from PIL import Image, ImageTk
+import threading
+from queue import Queue
+import time
 class Window(Frame):
 
     def __init__(self, master=None):
@@ -29,7 +32,7 @@ class Window(Frame):
         # adds a command to the menu option, calling it exit, and the
         # command it runs on event is client_exit
         file.add_command(label="Exit", command=self.client_exit)
-
+        file.add_command(label="Connect", command=self.getArduinos)
         #added "file" to our menu
         menu.add_cascade(label="File", menu=file)
 
@@ -39,12 +42,40 @@ class Window(Frame):
         # adds a command to the menu option, calling it exit, and the
         # command it runs on event is client_exit
         edit.add_command(label="Undo")
-
+        edit.add_command(label="Show Img", command=self.showImg)
+        edit.add_command(label="Show Text", command=self.showText)
         #added "file" to our menu
         menu.add_cascade(label="Edit", menu=edit)
-
+        #self.getArduinos()
     def client_exit(self):
         exit()
+    
+    def showImg(self):
+        load = Image.open("painting.jpg")
+        render = ImageTk.PhotoImage(load)
+
+        # labels can be text or images
+        img = Label(self, image=render)
+        img.image = render
+        img.place(x=0, y=0)
+
+    def showText(self):
+        text = Label(self, text="Connecting to Arduinos...")
+        text.pack()
+    
+    def getArduinos(self):
+        text = Label(self, text="Connecting to Arduinos...")
+        text.pack()
+
+        ard_list = setup()
+        return ard_list
+class ThreadedTask(threading.Thread):
+    def __init__(self, queue):
+        threading.Thread.__init__(self)
+        self.queue = queue
+    def run(self):
+        time.sleep(5)  # Simulate long running process
+        self.queue.put("Task finished")
 
 root = Tk()
 
