@@ -17,15 +17,16 @@ def setup():
         print(ard.is_connected)
     # Initialize communication with Arduino
     for ard in ardList:
-        print("Waiting for arduino...")
-        write_order(ard.conn, Order.HELLO)
-        bytes_array = bytearray(ard.conn.read(1))
-        if not bytes_array:
-            time.sleep(2)
-            continue
-        byte = bytes_array[0]
-        if byte in [Order.HELLO.value, Order.ALREADY_CONNECTED.value]:
-            print("Connected to Arduino")
+        while True:
+            print("Waiting for arduino...")
+            write_order(ard.conn, Order.HELLO)
+            bytes_array = bytearray(ard.conn.read(1))
+            if not bytes_array:
+                time.sleep(2)
+                continue
+            byte = bytes_array[0]
+            if byte in [Order.HELLO.value, Order.ALREADY_CONNECTED.value]:
+                print("Connected to Arduino" + str(ard))
 
     return ardList
 
