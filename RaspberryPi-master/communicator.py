@@ -37,7 +37,7 @@ def setup():
                 continue
             byte = bytes_array[0]
             # byte = ser.read(1)
-            print("Message from " + str(ard) + ": " + byte)
+            print("Message from " + str(ard) + ": " + str(byte))
             time.sleep(1)
 
     return ardList
