@@ -60,7 +60,6 @@ class Window(Frame):
         ard_list1 = setup()
         self.ard_list = ard_list
         self.showText()
-        return ard_list
 class ThreadedTask(threading.Thread):
     def __init__(self, queue):
         threading.Thread.__init__(self)
