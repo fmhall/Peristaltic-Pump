@@ -11,6 +11,7 @@ class Window(Frame):
         Frame.__init__(self, master)                 
         self.master = master
         self.init_window()
+        self.ard_list = []
 
     #Creation of init_window
     def init_window(self):
@@ -49,14 +50,16 @@ class Window(Frame):
         exit()
 
     def showText(self):
-        text = Label(self, text="Connecting to Arduinos...")
-        text.pack()
+        for ard in self.ard_list:
+            text = Label(self, text=str(ard))
+            text.pack()
     
     def getArduinos(self):
-        text = Label(self, text="Connecting to Arduinos...")
-        text.pack()
-
-        ard_list = setup()
+        # text = Label(self, text="Connecting to Arduinos...")
+        # text.pack()
+        ard_list1 = setup()
+        self.ard_list = ard_list
+        self.showText()
         return ard_list
 class ThreadedTask(threading.Thread):
     def __init__(self, queue):
