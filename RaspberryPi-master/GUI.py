@@ -58,7 +58,7 @@ class Window(Frame):
         # text = Label(self, text="Connecting to Arduinos...")
         # text.pack()
         ard_list1 = setup()
-        self.ard_list = ard_list
+        self.ard_list = ard_list1
         self.showText()
 class ThreadedTask(threading.Thread):
     def __init__(self, queue):
