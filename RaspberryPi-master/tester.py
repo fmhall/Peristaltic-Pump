@@ -10,13 +10,6 @@ ard1 = Arduino(port="/dev/ttyACM0",speed=9600)
 ser = ard1.conn
 ser.reset_input_buffer()
 
-# prompt = ser.readline()
-# print(prompt)
-
-# ser.reset_input_buffer()
-# stringThing = '1'
-# ser.write(stringThing.encode(encoding='UTF-8'))
-# ser.reset_input_buffer()
 is_connected = False
 while not is_connected:
         print("Waiting for arduino...")
@@ -28,7 +21,7 @@ while not is_connected:
         byte = bytes_array[0]
         if byte in [Order.HELLO.value, Order.ALREADY_CONNECTED.value]:
             is_connected = True
-            print("Connected!!!!!")
+            print("Connected!")
             
 write_order(ser, Order.HELLO)
 write_order(ser, Order.MOTOR)
