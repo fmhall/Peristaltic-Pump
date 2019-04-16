@@ -33,7 +33,7 @@ class Arduino(object):
         return conn
     #How the object will represent itself when called or printed
     def __repr__(self):
-        return "Arduino object:\n\nArduino at port: %s\nspeed: %s" %(self.port,self.speed)
+        return "Arduino at port: %s\n" %(self.port)
     
 
     
