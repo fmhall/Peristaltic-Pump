@@ -9,8 +9,8 @@ def setup():
     ard1 = Arduino(port="/dev/ttyACM0",speed=9600)
     ard2 = Arduino(port="/dev/ttyACM1",speed=9600)
     ard3 = Arduino(port="/dev/ttyACM2",speed=9600)
-    ard4 = Arduino(port="/dev/ttyACM3",speed=9600)
-    ardList = [ard1,ard2,ard3,ard4]
+    #ard4 = Arduino(port="/dev/ttyACM3",speed=9600)
+    ardList = [ard1,ard2,ard3]
     flag = True
     for ard in ardList:
         flag = flag and ard.is_connected
