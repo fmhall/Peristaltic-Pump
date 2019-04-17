@@ -64,3 +64,9 @@ def changeSpeed(ard, motor, newSpeed):
     write_order(ard.conn, Order.MOTOR)
     write_i8(ard.conn, motor)
     write_i8(ard.conn, newSpeed)
+
+def readAll(ardList):
+    for ard in ardList:
+            ard.conn.reset_input_buffer()
+            print(ard)
+            print(read_i8(ard.conn))
