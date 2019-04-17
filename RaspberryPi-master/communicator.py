@@ -47,14 +47,17 @@ def stopAll(ardList):
     for ard in ardList:
         ard.conn.reset_input_buffer()
         print(ard)
-        for motor in range(6):
-            print(motor)
-            write_order(ard.conn, Order.MOTOR)
-            write_i8(ard.conn, motor+1)
-            write_i8(ard.conn, 0)
-            #print(read_i8(ard.conn))
-# for ser in serList:
-#     ser.flushInput()
+        write_order(ard.conn, Order.STOP)
+
+def startAll(ardList):
+    for ard in ardList:
+            ard.conn.reset_input_buffer()
+            print(ard)
+            for motor in range(6):
+                print(motor)
+                write_order(ard.conn, Order.MOTOR)
+                write_i8(ard.conn, motor+1)
+                write_i8(ard.conn, 90)
 
 def changeSpeed(ard, motor, newSpeed):
     ard.conn.reset_input_buffer()
