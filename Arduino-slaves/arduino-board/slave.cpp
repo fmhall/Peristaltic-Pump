@@ -18,6 +18,12 @@ AccelStepper stepper3(2, 7, 6);
 AccelStepper stepper4(2, 9, 8);
 AccelStepper stepper5(2, 11, 10);
 AccelStepper stepper6(2, 13, 12);
+int16_t motor1Speed = 700;
+int16_t motor2Speed = 700;
+int16_t motor3Speed = 700;
+int16_t motor4Speed = 700;
+int16_t motor5Speed = 700;
+int16_t motor6Speed = 700;
 void setup()
 {
     // Init Serial
@@ -31,22 +37,22 @@ void setup()
         write_order(ALREADY_CONNECTED);
     }
     stepper1.setMaxSpeed(1000);
-    stepper1.setSpeed(700);
+    stepper1.setSpeed(motor1Speed);
 
     stepper2.setMaxSpeed(1000);
-    stepper2.setSpeed(700);
+    stepper2.setSpeed(motor2Speed);
 
     stepper3.setMaxSpeed(1000);
-    stepper3.setSpeed(700);
+    stepper3.setSpeed(motor3Speed);
 
     stepper4.setMaxSpeed(1000);
-    stepper4.setSpeed(700);
+    stepper4.setSpeed(motor4Speed);
 
     stepper5.setMaxSpeed(1000);
-    stepper5.setSpeed(700);
+    stepper5.setSpeed(motor5Speed);
 
     stepper6.setMaxSpeed(1000);
-    stepper6.setSpeed(700);
+    stepper6.setSpeed(motor6Speed);
 }
 
 String inputString = "";
@@ -109,28 +115,34 @@ void update_motors_orders(int8_t m_number, int speed)
         // Do nothing
         break;
     case 1:
-        stepper1.setSpeed(speed);
+        motor1Speed = speed;
+        stepper1.setSpeed(motor1Speed);
         stepper1.runSpeed();
         write_order(MOTOR1);
         break;
     case 2:
-        stepper2.setSpeed(speed);
+        motor2Speed = speed;
+        stepper1.setSpeed(motor2Speed);
         write_order(MOTOR2);
         break;
     case 3:
-        stepper3.setSpeed(speed);
+        motor3Speed = speed;
+        stepper1.setSpeed(motor3Speed);
         write_order(MOTOR3);
         break;
     case 4:
-        stepper4.setSpeed(speed);
+        motor4Speed = speed;
+        stepper1.setSpeed(motor4Speed);
         write_order(MOTOR4);
         break;
     case 5:
-        stepper5.setSpeed(speed);
+        motor5Speed = speed;
+        stepper1.setSpeed(motor5Speed);
         write_order(MOTOR5);
         break;
     case 6:
-        stepper6.setSpeed(speed);
+        motor6Speed = speed;
+        stepper1.setSpeed(motor6Speed);
         write_order(MOTOR6);
         break;
     default:
@@ -140,12 +152,18 @@ void update_motors_orders(int8_t m_number, int speed)
 
 void stop()
 {
-    stepper1.setSpeed(0);
-    stepper2.setSpeed(0);
-    stepper3.setSpeed(0);
-    stepper4.setSpeed(0);
-    stepper5.setSpeed(0);
-    stepper6.setSpeed(0);
+    int16_t motor1Speed = 0;
+    int16_t motor2Speed = 0;
+    int16_t motor3Speed = 0;
+    int16_t motor4Speed = 0;
+    int16_t motor5Speed = 0;
+    int16_t motor6Speed = 0;
+    stepper1.setSpeed(motor1Speed);
+    stepper2.setSpeed(motor2Speed);
+    stepper3.setSpeed(motor3Speed);
+    stepper4.setSpeed(motor4Speed);
+    stepper5.setSpeed(motor5Speed);
+    stepper6.setSpeed(motor6Speed);
 }
 void start()
 {
@@ -159,12 +177,22 @@ void start()
 
 void getSpeeds()
 {
-    write_i16(stepper1.speed());
-    write_i16(stepper2.speed());
-    write_i16(stepper3.speed());
-    write_i16(stepper4.speed());
-    write_i16(stepper5.speed());
-    write_i16(stepper6.speed());
+    write_i16((int16_t)stepper1.speed());
+    write_i16((int16_t)stepper2.speed());
+    write_i16((int16_t)stepper3.speed());
+    write_i16((int16_t)stepper4.speed());
+    write_i16((int16_t)stepper5.speed());
+    write_i16((int16_t)stepper6.speed());
+}
+
+void getSpeeds2()
+{
+    write_i16(motor1Speed);
+    write_i16(motor2Speed);
+    write_i16(motor3Speed);
+    write_i16(motor4Speed);
+    write_i16(motor5Speed);
+    write_i16(motor6Speed);
 }
 
 int convert_to_pwm(float motor_speed)

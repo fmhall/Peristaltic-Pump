@@ -59,9 +59,7 @@ def startAll(ardList):
         print(ard)
         for motor in range(6):
             print(motor)
-            write_order(ard.conn, Order.MOTOR)
-            write_i8(ard.conn, motor+1)
-            write_i8(ard.conn, 90)
+            setSpeed(ard, motor+1, 900)
 def start(ardList):
     for ard in ardList:
         ard.conn.reset_input_buffer()
@@ -88,3 +86,10 @@ def getSpeeds(ardList):
             print(speed)
             speeds[-1].append(speed)
     return speeds
+
+def setSpeed(ard, motor, speed):
+    write_order(ard.conn, Order.MOTOR)
+    write_i8(ard.conn, motor)
+    write_i8(ard.conn, speed/10)
+    print(read_i8(ard.conn))
+    print(read_order(ard.conn))
