@@ -90,6 +90,6 @@ def getSpeeds(ardList):
 def setSpeed(ard, motor, speed):
     write_order(ard.conn, Order.MOTOR)
     write_i8(ard.conn, motor)
-    write_i8(ard.conn, speed/10)
+    write_i8(ard.conn, speed//10)
     print(read_i8(ard.conn))
     print(read_order(ard.conn))
