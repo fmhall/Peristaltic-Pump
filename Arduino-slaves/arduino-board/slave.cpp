@@ -53,7 +53,6 @@ void setup()
 
     stepper6.setMaxSpeed(1000);
     stepper6.setSpeed(motor6Speed);
-    write_i8(7);
 }
 
 String inputString = "";
