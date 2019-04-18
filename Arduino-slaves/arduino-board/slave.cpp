@@ -103,7 +103,6 @@ void step_motors()
     // {
     //     stepper6.runSpeed();
     // }
-    write_i8(7);
 }
 
 void update_motors_orders(int8_t m_number, int speed)
@@ -248,7 +247,7 @@ void get_messages_from_serial()
             }
             case SPEEDS:
             {
-                getSpeeds();
+                getSpeeds2();
                 if (DEBUG)
                 {
                     write_order(SPEEDS);
@@ -260,7 +259,7 @@ void get_messages_from_serial()
                 // between -100 and 100
                 motor_number = read_i8();
                 motor_speed = read_i8();
-                write_i8(motor_speed);
+                // write_i8(motor_speed);
                 motor_in = motor_speed * 10;
                 update_motors_orders(motor_number, motor_in);
                 if (DEBUG)
