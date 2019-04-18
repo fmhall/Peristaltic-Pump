@@ -121,27 +121,27 @@ void update_motors_orders(int8_t m_number, int speed)
         break;
     case 2:
         motor2Speed = speed;
-        stepper1.setSpeed(motor2Speed);
+        stepper2.setSpeed(motor2Speed);
         write_order(MOTOR2);
         break;
     case 3:
         motor3Speed = speed;
-        stepper1.setSpeed(motor3Speed);
+        stepper3.setSpeed(motor3Speed);
         write_order(MOTOR3);
         break;
     case 4:
         motor4Speed = speed;
-        stepper1.setSpeed(motor4Speed);
+        stepper4.setSpeed(motor4Speed);
         write_order(MOTOR4);
         break;
     case 5:
         motor5Speed = speed;
-        stepper1.setSpeed(motor5Speed);
+        stepper5.setSpeed(motor5Speed);
         write_order(MOTOR5);
         break;
     case 6:
         motor6Speed = speed;
-        stepper1.setSpeed(motor6Speed);
+        stepper6.setSpeed(motor6Speed);
         write_order(MOTOR6);
         break;
     default:
@@ -151,12 +151,12 @@ void update_motors_orders(int8_t m_number, int speed)
 
 void stop()
 {
-    int16_t motor1Speed = 0;
-    int16_t motor2Speed = 0;
-    int16_t motor3Speed = 0;
-    int16_t motor4Speed = 0;
-    int16_t motor5Speed = 0;
-    int16_t motor6Speed = 0;
+    motor1Speed = 0;
+    motor2Speed = 0;
+    motor3Speed = 0;
+    motor4Speed = 0;
+    motor5Speed = 0;
+    motor6Speed = 0;
     stepper1.setSpeed(motor1Speed);
     stepper2.setSpeed(motor2Speed);
     stepper3.setSpeed(motor3Speed);
@@ -166,6 +166,12 @@ void stop()
 }
 void start()
 {
+    motor1Speed = 900;
+    motor2Speed = 900;
+    motor3Speed = 900;
+    motor4Speed = 900;
+    motor5Speed = 900;
+    motor6Speed = 900;
     stepper1.setSpeed(900);
     stepper2.setSpeed(900);
     stepper3.setSpeed(900);
