@@ -219,7 +219,7 @@ void get_messages_from_serial()
             else
             {
                 // If we are already connected do not send "hello" to avoid infinite loop
-                write_order(ERROR);
+                write_order(RECEIVED);
             }
         }
         else if (order_received == ALREADY_CONNECTED)
