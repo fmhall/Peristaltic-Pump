@@ -23,7 +23,7 @@ def setup():
             print("Waiting for arduino...")
             write_order(ard.conn, Order.HELLO)
             o = read_order(ard.conn)
-            if not 0:
+            if not o:
                 time.sleep(2)
                 continue
             # byte = bytes_array[0]
