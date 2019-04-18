@@ -17,6 +17,8 @@ def setup():
         print(ard.is_connected)
     # Initialize communication with Arduino
     for ard in ardList:
+        ard.conn.reset_input_buffer()
+        ard.conn.reset_output_buffer()
         while True:
             print("Waiting for arduino...")
             write_order(ard.conn, Order.HELLO)
@@ -43,23 +45,25 @@ def setup():
     return ardList
 
 def stopAll(ardList):
-    
     for ard in ardList:
+        ard.conn.reset_input_buffer()
         ard.conn.reset_output_buffer()
         print(ard)
         write_order(ard.conn, Order.ALLSTOP)
 
 def startAll(ardList):
     for ard in ardList:
-            ard.conn.reset_output_buffer()
-            print(ard)
-            for motor in range(6):
-                print(motor)
-                write_order(ard.conn, Order.MOTOR)
-                write_i8(ard.conn, motor+1)
-                write_i8(ard.conn, 90)
+        ard.conn.reset_input_buffer()
+        ard.conn.reset_output_buffer()
+        print(ard)
+        for motor in range(6):
+            print(motor)
+            write_order(ard.conn, Order.MOTOR)
+            write_i8(ard.conn, motor+1)
+            write_i8(ard.conn, 90)
 def start(ardList):
     for ard in ardList:
+        ard.conn.reset_input_buffer()
         ard.conn.reset_output_buffer()
         print(ard)
         write_order(ard.conn, Order.ALLSTART)
