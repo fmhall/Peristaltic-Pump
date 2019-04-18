@@ -3,7 +3,7 @@ import serial
 import time
 import struct
 from Arduino import Arduino
-from robust_serial import write_order, Order, write_i8, write_i16, read_i8, read_order
+from robust_serial import write_order, Order, write_i8, write_i16, read_i8, read_i16, read_order
 
 def setup():
     ard1 = Arduino(port="/dev/ttyACM0",speed=9600)
@@ -45,13 +45,13 @@ def setup():
 def stopAll(ardList):
     
     for ard in ardList:
-        ard.conn.reset_input_buffer()
+        ard.conn.reset_output_buffer()
         print(ard)
         write_order(ard.conn, Order.ALLSTOP)
 
 def startAll(ardList):
     for ard in ardList:
-            ard.conn.reset_input_buffer()
+            ard.conn.reset_output_buffer()
             print(ard)
             for motor in range(6):
                 print(motor)
@@ -60,13 +60,13 @@ def startAll(ardList):
                 write_i8(ard.conn, 90)
 def start(ardList):
     for ard in ardList:
-        ard.conn.reset_input_buffer()
+        ard.conn.reset_output_buffer()
         print(ard)
         write_order(ard.conn, Order.ALLSTART)
 
 def readAll(ardList):
     for ard in ardList:
-            ard.conn.reset_input_buffer()
+            ard.conn.reset_output_buffer()
             print(ard)
             print(read_i8(ard.conn))
 
@@ -75,6 +75,7 @@ def getSpeeds(ardList):
     for ard in ardList:
         speeds.append([])
         ard.conn.reset_input_buffer()
+        ard.conn.reset_output_buffer()
         print(ard)
         write_order(ard.conn, Order.SPEEDS)
         for i in range(6):
