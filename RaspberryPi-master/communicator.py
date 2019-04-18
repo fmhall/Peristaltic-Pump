@@ -50,7 +50,7 @@ def stopAll(ardList):
         ard.conn.reset_output_buffer()
         print(ard)
         write_order(ard.conn, Order.ALLSTOP)
-        time.sleep(1)
+        time.sleep(.3)
 
 def startAll(ardList, speed=900):
     for ard in ardList:
