@@ -22,12 +22,12 @@ def setup():
         while True:
             print("Waiting for arduino...")
             write_order(ard.conn, Order.HELLO)
-            bytes_array = bytearray(ard.conn.read(1))
-            if not bytes_array:
+            o = read_order(ard.conn)
+            if not 0:
                 time.sleep(2)
                 continue
-            byte = bytes_array[0]
-            if byte in [7]:
+            # byte = bytes_array[0]
+            if o == Order.RECEIVED.value:
                 print("Connected to Arduino: " + str(ard))
                 break
     # while True:

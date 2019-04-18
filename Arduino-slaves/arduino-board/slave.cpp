@@ -53,6 +53,7 @@ void setup()
 
     stepper6.setMaxSpeed(1000);
     stepper6.setSpeed(motor6Speed);
+    write_i8(7);
 }
 
 String inputString = "";
@@ -213,7 +214,7 @@ void get_messages_from_serial()
             if (!is_connected)
             {
                 is_connected = true;
-                write_order(HELLO);
+                write_order(RECEIVED);
                 //write_order(STOP);
             }
             else
@@ -277,7 +278,7 @@ void get_messages_from_serial()
                 return;
             }
         }
-        write_order(RECEIVED); // Confirm the reception
+        //write_order(RECEIVED); // Confirm the reception
     }
 }
 
