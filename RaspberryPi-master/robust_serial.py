@@ -11,7 +11,7 @@ class Order(Enum):
     """
 
     HELLO = 0
-    SERVO = 1
+    SPEEDS = 1
     MOTOR = 2
     ALREADY_CONNECTED = 3
     ERROR = 4
@@ -24,6 +24,7 @@ class Order(Enum):
     MOTOR5 = 15
     MOTOR6 = 16
     ALLSTOP = 20
+    ALLSTART = 21
 
 def read_order(f):
     """

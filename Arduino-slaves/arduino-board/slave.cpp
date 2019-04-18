@@ -147,6 +147,25 @@ void stop()
     stepper5.setSpeed(0);
     stepper6.setSpeed(0);
 }
+void start()
+{
+    stepper1.setSpeed(900);
+    stepper2.setSpeed(900);
+    stepper3.setSpeed(900);
+    stepper4.setSpeed(900);
+    stepper5.setSpeed(900);
+    stepper6.setSpeed(900);
+}
+
+void getSpeeds()
+{
+    write_i16(stepper1.speed());
+    write_i16(stepper2.speed());
+    write_i16(stepper3.speed());
+    write_i16(stepper4.speed());
+    write_i16(stepper5.speed());
+    write_i16(stepper6.speed());
+}
 
 int convert_to_pwm(float motor_speed)
 {
@@ -184,7 +203,7 @@ void get_messages_from_serial()
         {
             switch (order_received)
             {
-            case STOP:
+            case ALLSTOP:
             {
                 motor_speed = 0;
                 stop();
@@ -194,13 +213,17 @@ void get_messages_from_serial()
                 }
                 break;
             }
-            case SERVO:
+            case ALLSTART:
             {
-                servo_angle = read_i16();
+                start();
+                break;
+            }
+            case SPEEDS:
+            {
+                getSpeeds();
                 if (DEBUG)
                 {
-                    write_order(SERVO);
-                    write_i16(servo_angle);
+                    write_order(SPEEDS);
                 }
                 break;
             }
@@ -495,4 +518,1451 @@ void run1(int m, int s, float t)
         }
         done = false;
     }
+}
+}
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+Serial.println("*****************Turning all motors off*****************");
+Serial.println(" ");
+//Serial.print(m);
+stepper6.setSpeed(0);
+stepper6.runSpeed();
+done = true;
+}
+}
+done = false;
+}
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+}
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+Serial.println("*****************Turning all motors off*****************");
+Serial.println(" ");
+//Serial.print(m);
+stepper6.setSpeed(0);
+stepper6.runSpeed();
+done = true;
+}
+}
+done = false;
+}
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+stepper6.setSpeed(0);
+stepper6.runSpeed();
+done = true;
+done = true;
+}
+}
+done = false;
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+}
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+Serial.println("*****************Turning all motors off*****************");
+Serial.println(" ");
+//Serial.print(m);
+stepper6.setSpeed(0);
+stepper6.runSpeed();
+done = true;
+}
+}
+done = false;
+}
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+stepper6.setSpeed(0);
+stepper6.runSpeed();
+done = true;
+}
+}
+done = false;
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+}
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+Serial.println("*****************Turning all motors off*****************");
+Serial.println(" ");
+//Serial.print(m);
+stepper6.setSpeed(0);
+stepper6.runSpeed();
+done = true;
+}
+}
+done = false;
+}
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+stepper6.setSpeed(0);
+stepper6.runSpeed();
+done = true;
+}
+}
+done = false;
+}
+}
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+stepper6.setSpeed(0);
+stepper6.runSpeed();
+done = true;
+}
+}
+done = false;
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+stepper6.setSpeed(0);
+stepper6.runSpeed();
+done = true;
+}
+}
+done = false;
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+}
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+Serial.println("*****************Turning all motors off*****************");
+Serial.println(" ");
+//Serial.print(m);
+stepper6.setSpeed(0);
+stepper6.runSpeed();
+done = true;
+}
+}
+done = false;
+}
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+stepper6.setSpeed(0);
+stepper6.runSpeed();
+done = true;
+}
+}
+done = false;
+}
+}
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
+}
+}
+else
+{
+    Serial.println("*****************Turning all motors off*****************");
+    Serial.println(" ");
+    //Serial.print(m);
+    stepper6.setSpeed(0);
+    stepper6.runSpeed();
+    done = true;
+}
+}
+done = false;
 }
