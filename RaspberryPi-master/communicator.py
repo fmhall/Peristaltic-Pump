@@ -52,14 +52,14 @@ def stopAll(ardList):
         write_order(ard.conn, Order.ALLSTOP)
         time.sleep(1)
 
-def startAll(ardList):
+def startAll(ardList, speed=900):
     for ard in ardList:
         ard.conn.reset_input_buffer()
         ard.conn.reset_output_buffer()
         print(ard)
         for motor in range(6):
             print(motor)
-            setSpeed(ard, motor+1, 900)
+            setSpeed(ard, motor+1, speed)
 def start(ardList):
     for ard in ardList:
         ard.conn.reset_input_buffer()
